@@ -9,13 +9,13 @@ import time
 from sklearn.model_selection import KFold
 
 from tensorflow.python.ops.distributions.util import fill_triangular
-from matrixcell import MatrixRNNCell,CNNRNNCell,Chol_de
+from matrixcell import SPDSRU,CNNRNNCell,Chol_de
 
 from readdata import read_data
 
 
 def get_a_cell():
-    return MatrixRNNCell(alpha = a , batch_size = batch_size , matrix_size = matrix_size , eps = eps)
+    return SPDSRU(alpha = a , batch_size = batch_size , matrix_size = matrix_size , eps = eps)
 
 
 

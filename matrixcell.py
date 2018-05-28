@@ -104,7 +104,7 @@ def Chol_com(l,n,batch_size):
 
 
 
-class MatrixRNNCell(tf.contrib.rnn.RNNCell):
+class SPDSRU(tf.contrib.rnn.RNNCell):
     """
     Implements a simple distribution based recurrent unit that keeps moving
     averages of the mean map embeddings of features of inputs on manifold.
