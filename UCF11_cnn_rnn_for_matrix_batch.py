@@ -126,7 +126,7 @@ label = []
 
 for idx in range(batch_num):
     print (idx)
-    data_batch_in,label_batch_in = read_data(idx,'the_path_of_your_UCF11',matrix_length,sample_rate)
+    data_batch_in,label_batch_in = read_data(idx,'./UCF11_updated_mpg/processed_data/',matrix_length,sample_rate)
     data.append(data_batch_in)
     label.append(label_batch_in)
 

@@ -83,8 +83,9 @@ labels = to_categorical(labels)
 shuffle_inds = np.random.choice(range(len(clips)), len(clips), False)
 totalclips = clips[shuffle_inds]
 totallabels = labels[shuffle_inds]
-
-pdb.set_trace()
+if not os.path.isdir("/processed_data/"):
+    os.mkdir("processed_data")
+# pdb.set_trace()
 # iterate through all clips and store the length of each:
 for xj in range(40):
     clips = totalclips[xj*40:xj*40+40]
