@@ -160,25 +160,26 @@ with tf.Session() as sess:
                     train_loss = train_loss + loss_
             train_acc = train_acc / len(tr_indices)
             train_loss = train_loss/len(tr_indices)
-            print ('Train Accuracy is : ' , train_acc , ' in Epoch : ' , epoch)
-            print ('Train Loss is : ' , train_loss)
-            print ('Time per epoch : ' , time.time()-start_time)
-            
-            test_acc = 0
-            for batch_idx in ts_indices:
-                data_batch_in = data[batch_idx]
-                label_batch_in = label[batch_idx]
-                loss_, acc_ = sess.run([loss,accuracy],
-                             feed_dict={
-                                   X:data_batch_in,
-                                   y:label_batch_in,
-                                   initMt:init_state,
-                                   keep_prob:1.,
-                                    })
-                test_acc = test_acc + acc_
-            test_acc = test_acc / len(ts_indices)
-            print ('Test Accuracy is : ' , test_acc)
-            print (' ')
+            if epoch %100 == 0:
+                print ('Train Accuracy is : ' , train_acc , ' in Epoch : ' , epoch)
+                print ('Train Loss is : ' , train_loss)
+                print ('Time per epoch : ' , time.time()-start_time)
+
+                test_acc = 0
+                for batch_idx in ts_indices:
+                    data_batch_in = data[batch_idx]
+                    label_batch_in = label[batch_idx]
+                    loss_, acc_ = sess.run([loss,accuracy],
+                                 feed_dict={
+                                       X:data_batch_in,
+                                       y:label_batch_in,
+                                       initMt:init_state,
+                                       keep_prob:1.,
+                                        })
+                    test_acc = test_acc + acc_
+                test_acc = test_acc / len(ts_indices)
+                print ('Test Accuracy is : ' , test_acc)
+                print (' ')
 
         final_acc_fold[co] = 0.
         for batch_idx in ts_indices:
