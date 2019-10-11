@@ -1,5 +1,5 @@
 # SPD-SRU
-This is the code for the paper Statistical Recurrent Models on Manifold valued Data.
+This is the code for the paper [Statistical Recurrent Models on Manifold valued Data](https://arxiv.org/abs/1805.11204).
 
 This is part of the experiment on the UCF11 dataset.
 
